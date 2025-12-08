@@ -1,6 +1,20 @@
-using Vegas
 using Test
+using SafeTestsets
 
-@testset "Vegas.jl" begin
-    @test Vegas.hello_world() == "Hello, World!"
+begin
+    @safetestset "Grid" begin
+        include("grid.jl")
+    end
+
+    @safetestset "Vegas Map" begin
+        include("map.jl")
+    end
+
+    @safetestset "Jacobian" begin
+        include("jac.jl")
+    end
+
+    @safetestset "bin average" begin
+        include("bin_avg.jl")
+    end
 end
